@@ -32,7 +32,9 @@ some <a href="?p=docs">documents</a> and <a href="?p=projects">projects</a>.
 </p>
 
 <h3>Quick start</h3>
-To get the CLC ports tree, you need to place our <a href="http://crux.fh-regensburg.de/supfile.clc">supfile</a> in your 
+To get the CLC ports tree, you need to place our 
+<a href="files/clc.cvsup">clc.cvsup</a> (if you are using <code>ports</code> version 0.9 or later) or 
+<a href="files/supfile.clc">supfile.clc</a> in your 
 <code>/etc/ports/</code> directory and
 <code>ports -u</code>. After that, you should have the ports in your tree.
 
