@@ -1,0 +1,12 @@
+*  { 
+    font-family: Verdana, Helvetica, Arial, sans-serif; 
+}
+
+small {
+  color:#797979;
+}
+
+pre, code {
+  font-family: courier, monospace
+}
+         
