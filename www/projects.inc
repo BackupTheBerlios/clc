@@ -6,8 +6,8 @@ $lp->setPage( "projects/" );
 // TODO: add project -> seperate file
 $projects["art"] = "CRUX art";
 $projects["apache"] = "the httpd";
-// $projects["gnome"] = "the GNOME desktop environment";
-// $projects["kde"] = "the KDE desktop environment";
+$projects["gnome"] = "the GNOME desktop environment";
+$projects["kde"] = "the KDE desktop environment";
 $projects["ipv6"] = "IPv6 ports";
 // $projects["print"] = "Printing related stuff";
 // $projects["boot"] = "boot related";
