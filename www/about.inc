@@ -33,6 +33,8 @@ function addAuthor( $name, $nick, $retired=false ) {
 
 <? 
 addAuthor( "Markus Ackermann", "maol", true );
+addAuthor( "Ian Armstrong", "-" );
+addAuthor( "Giuseppe Coviello", "[slash]" );
 addAuthor( "Jürgen Daubert", "jue" );
 addAuthor( "Victor Didovicher", "victord");
 addAuthor( "Olle Gustafsson", "ogg", true );
@@ -44,6 +46,8 @@ addAuthor( "Erlend Bergs&aring;s Mikkelsen", "howl", true );
 addAuthor( "Håvard Moen", "vanilije", true );
 addAuthor( "Daniel Müller", "danm" );
 addAuthor( "Martin Opel", "obbl" );
+addAuthor( "Tilman Sauerbeck", "stoyan" );
+addAuthor( "Daniel Walpole", "danielw" );
 addAuthor( "Johannes Winkelmann", "cptn" );
 ?>
 

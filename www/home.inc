@@ -10,6 +10,7 @@ function newsItem( $date, $text ) {
 <blockquote>
 <table>
 <?
+newsItem( "11.10.2003", "No news, good news");
 newsItem( "14.08.2003", "Database now shows state for CRUX 1.2");
 newsItem( "06.08.2003", "Searchable database online again");
 // newsItem( "02.07.2003", "Testing starts on berlios...");
