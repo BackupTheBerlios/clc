@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE article SYSTEM "file:///usr/share/xml/docbook/xml-dtd-4.1.2-9/docbookx.dtd">
+
+<article xmlns:xi="http://www.w3.org/2001/XInclude">
+  <articleinfo>
+    <title>CVS HOWTO for CLC</title>
+
+    <author>
+      <firstname>Johannes</firstname>
+      <surname>Winkelmann</surname>
+      <initials>jw</initials>
+      <email>jw@tks6.net</email>
+    </author>
+  </articleinfo>
+
+  <sect1>
+    <title>Introduction</title>
+    <para>
+      This text is a HOWTO for CLC maintainers. It describes how to add
+      ports to the CVS first and to <filename>clc/stable</filename> or
+      <filename>clc/unstable</filename> afterwards.
+    </para>
+    <para>
+      It assumes you know <command>cvs</command> already (or have its
+      documentation somewhere); you should also have read <ulink
+      url="http://rfhs8012.fh-regensburg.de/~opel/crux/clc/">this
+	document</ulink> describing how the CVS at CLC is structured.
+    </para>
+    <para>
+      Feedback and suggestions are very much appreciated.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>Getting ready</title>
+    <sect2>
+      <title>Before you start</title>
+      <para>
+	The CVS at CLC is accessed via <command>ssh</command>, therefore
+	you have to make sure that the <literal>CVS_RSH</literal> is set
+	correctly (in most cases, it should
+	be set to <literal>ssh</literal>). Also check the
+	<literal>CVSUMASK</literal> environment variable which should be
+	set to <literal>002</literal> (consult the CVS documentation for
+	more information about this).
+      </para>
+      <para>
+	You can specify default arguments <command>cvs</command> uses in
+	your <filename>~/.cvsrc</filename> file; the following settings are
+	highly recommended:
+      </para>
+      <programlisting>update -d -P
+diff -u</programlisting>
+      <para>
+	See the man page of <command>cvs</command> for more information
+	about the <filename>.cvsrc</filename> file.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Initial checkout</title>
+      <para>
+	First of all, you need to check out the CVS tree from CLC. You can
+	do this where ever you want to, but in this example, I'll use
+	<filename>$HOME/crux/cvs</filename> for this.
+      </para>
+      <programlisting>cd $HOME/crux/cvs
+cvs -d<replaceable>username</replaceable>@crux.lugs.ch:/cvs/crux checkout clc</programlisting>
+      <para>
+	Of course you will have to replace
+	<replaceable>username</replaceable> with your login
+	name. Afterwards, you'll have a directory called
+	<filename>clc</filename> containing all the ports already in cvs.
+      </para>
+    </sect2>
+  </sect1>
+  
+  <sect1>
+    <title>Adding a new port to CVS</title>
+    <para>
+      Let's assume you made a port of the imaginary package called
+      <filename>freedom</filename>. You are sure it's ready to go into
+      CVS.
+    </para>
+    <para>
+      While it doesn't matter where you made your port, let's
+      assume from now on that you did this in
+      <filename>$HOME/build</filename>. Therefore, your port resists
+      in <filename>$HOME/build/freedom</filename>.
+    </para>
+    <para>
+      To add it, use the following commands:
+    </para>
+    <programlisting>cd $HOME/crux/cvs/clc
+cp -r $HOME/build/freedom .
+cvs add freedom
+cd freedom
+cvs add Pkgfile .footprint .md5sum
+cvs commit -m "Initial release of freedom"</programlisting>
+    <para>
+      In case you have patches or a README file, make sure you add them
+      as well. <emphasis>Don't add the files which will be
+      downloaded!</emphasis>. Please include the name of the port in the
+      commit message as this messages are listed on the <ulink
+      url="http://crux.lugs.ch/cgi-bin/cvstrac/timeline">Timeline
+      page</ulink>
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>Adding a port to a collection (stable/unstable)</title>
+    <para>
+      To add a port to either <filename>clc/stable</filename> or
+      <filename>clc/unstable</filename>, tags are used. The tags are
+      <literal>STABLE-1_0</literal><footnote><para>The version is
+	  corresponding to the release of CRUX the port belongs to</para>
+      </footnote> for <filename>clc/stable</filename>
+      and <literal>UNSTABLE-1_0</literal> for
+      <filename>clc/unstable</filename>.
+      To add it to <filename>clc/unstable</filename> do the following
+      (assuming you are in <filename>$HOME/crux/cvs/clc/</filename>):
+    </para>
+    <programlisting>cd freedom
+cvs tag UNSTABLE-1_0</programlisting>
+  </sect1>
+
+  <sect1>
+    <title>Updating a port</title>
+    <para>
+    </para>
+    <para>
+      If you make changes to the port, all you have to do is commit your
+      changes and move the tag to make it (the tag) point to the latest
+      revision of the files.
+    </para>
+    <programlisting>cd $HOME/crux/cvs/clc/freedom
+(make some changes)
+cvs commit -m "<replaceable>description of the change, including name of port"</replaceable>
+cvs tag -c -F UNSTABLE-1_0</programlisting>
+    <para>
+      The <literal>-F</literal> switch tells <command>cvs</command> to
+      move the tag if it was already given to an earlier
+      revision.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>Changing the collection</title>
+    <para>
+      If you want to move a port from <filename>clc/unstable</filename>
+      to <filename>clc/stable</filename> (or the other way around), all
+      you have to do is delete the old tag and set the new one. If you
+      forget to delete the old tag, the port will appear in both
+      <filename>clc/unstable</filename> and
+      <filename>clc/stable</filename>.
+    </para>
+    <programlisting>cd $HOME/crux/cvs/clc/freedom
+cvs tag -d UNSTABLE-1_0
+cvs tag -c -F STABLE-1_0</programlisting>
+    <para>
+      The <literal>-d</literal> switch tells <command>cvs</command> to
+      delete the specified tag.
+    </para>
+  </sect1>
+
+  <sect1>
+    <title>Removing a port</title>
+    <para>
+      There are two levels of removing a ports: removing it from the
+      collections (<filename>clc/unstable</filename>, 
+      <filename>clc/stable</filename>) or removing it from the CVS
+      repository.
+    </para>
+    <para>
+      To remove it from the collections, all you have to do
+      it remove the tag (assuming it is in <filename>clc/stable</filename>):
+    </para>
+    <programlisting>cd $HOME/crux/cvs/clc/freedom
+cvs tag -d STABLE-1_0</programlisting>
+    <para>
+      To remove it from CVS completely, make sure you delete the tags
+      first, then call <command>cvs delete</command> for the port
+      directory you want to remove and finally call cvs update with the
+      <literal>-P</literal> switch to remove the empty directory.
+    </para>
+    <programlisting>cd $HOME/crux/cvs/clc/freedom
+cvs tag -d STABLE-1_0
+cvs delete -R -f freedom
+cvs update -P
+</programlisting>
+  </sect1>
+
+  
+</article>
