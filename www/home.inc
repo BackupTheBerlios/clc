@@ -25,9 +25,10 @@ newsItem( "18.02.2003", "Stats page: new structure, filtering" );
 
 
 <p>
-CLC is a port collection for the <a href="http://crux.nu">CRUX</a> linux distribution. We also
+CLC is a port collection for the <a href="http://crux.nu">CRUX</a> linux distribution. <!-- We also
 provide a <a href="?p=search">searchable database</a> of ports in CRUX itself and CLC, plus 
 some <a href="?p=docs">documents</a> and <a href="?p=projects">projects</a>.
+-->
 </p>
 
 <h3>Quick start</h3>

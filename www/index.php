@@ -149,5 +149,10 @@ if ( file_exists( $pageName . ".inc" ) ) {
     src="http://www.w3.org/Icons/valid-html401"
     alt="Valid HTML 4.01!" height="31" width="88"></a>
  </p>-->
+
+<p>
+<small>Kindly hosted by:</small><br>
+<A href="http://developer.berlios.de"> <IMG src="http://developer.berlios.de/bslogo.php?group_id=847" width="124" height="32" border="0" alt="BerliOS Developer Logo"></A>
+</p>
 </body>
 </html>
