@@ -7,7 +7,7 @@
 
 function printPortStats() {
 
-    $stat_sections = array("total", "base", "opt", "clc/stable", "clc/unstable" );
+    $stat_sections = array("total", "base", "opt", "contrib", "unmaintained" );
     foreach ( $stat_sections as $section ) {
         $ssql = " where section='$section'";
         if ( $section == "total" ) {
@@ -129,7 +129,7 @@ function printInfo( $result )
 
         echo "<td><b>CVS:</b>";
         if ( $row[1] == "contrib" ) {
-            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_1/contrib/$row[0]";
+            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_2/contrib/$row[0]";
             echo "<td>";
             echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
             echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";
@@ -137,7 +137,7 @@ function printInfo( $result )
             echo "</td>";
         } else if ( $row[1] == "unmaintained" ) {
             $cvsroot =
-                "http://clc.berlios.de/ports/CRUX-1_1/unmaintained/$row[0]";
+                "http://clc.berlios.de/ports/UNMAINTAINED/unmaintained/$row[0]";
             echo "<td>";
             echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
             echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";
@@ -145,7 +145,7 @@ function printInfo( $result )
             echo "</td>";
         } else {
             // base and opt
-            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_1/$row[1]/$row[0]";
+            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_2/$row[1]/$row[0]";
             echo "<td>";
             echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
             echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";

@@ -22,7 +22,7 @@ mysql_select_db( $db_name );
 Show only section
 <select name="section">
 <?
-foreach ( array( "all", "base", "opt", "clc/stable", "clc/unstable" ) as $opt )  {
+foreach ( array( "all", "base", "opt", "contrib", "unmaintained" ) as $opt )  {
     $s = "";
     if ( $opt == $section ) {
         $s = "selected";

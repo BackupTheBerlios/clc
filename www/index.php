@@ -46,6 +46,14 @@ if ( !isset($p) || $p == "home" ) {
     $pageName = "docs";
     $pageFound = true;
     $title = "Documents";
+} else if ( $p == "tools" ) {
+    $pageName = "tools";
+    $pageFound = true;
+    $title = "Tools and Scripts";
+} else if ( $p == "faq" ) {
+    $pageName = "faq";
+    $pageFound = true;
+    $title = "Frequently asked questions";
 }
 
 
@@ -95,7 +103,9 @@ $lp->printLink( "search", "Search" );
 print "&nbsp;|&nbsp;";
 $lp->printLink( "stats", "Changes & Additions" );
 print "&nbsp;|&nbsp;";
-$lp->printLink( "submit", "Submit Ports" );
+$lp->printLink( "tools", "Tools & Scripts" );
+print "&nbsp;|&nbsp;";
+$lp->printLink( "faq", "FAQ" );
 print "&nbsp;|&nbsp;";
 $lp->printLink( "about", "About CLC" );
 print "&nbsp;|&nbsp;";

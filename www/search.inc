@@ -9,7 +9,7 @@ include( "crux_secrets.php" );
         <select name="field">
             <?
                 foreach ( array( "Name", "Description", "Maintainer",
-                "Packager", "Packager/Maintainer", /* "File", */ "Group" ) as $opt ) {
+                "Packager", "Packager/Maintainer", "Files", "Group" ) as $opt ) {
                     $s = "";
                     if ( $opt == $field ) {
                         $s = "selected";
@@ -22,7 +22,7 @@ include( "crux_secrets.php" );
         in section
         <select name="section">
             <?
-                foreach ( array( "all", "base", "opt", "clc/stable", "clc/unstable" ) as $opt ) {
+                foreach ( array( "all", "base", "opt", "contrib", "unmaintained" ) as $opt ) {
                     $s = "";
                     if ( $opt == $section ) {
                         $s = "selected";
@@ -83,7 +83,7 @@ if ( !empty( $port ) ) {
     $sql = "select * from ports where description like '%".
     $value ."%' $section order by section, name";
     $query = "description containing '" . $value."'";
-} else if ( $field == "File" ) {
+} else if ( $field == "Files" ) {
     $sql = "select * from files where filename like '%".
     $value."%' $section order by section, portname, filename";
     $query = "file containing '" . $value."'";

@@ -2,6 +2,10 @@
     font-family: Verdana, Helvetica, Arial, sans-serif; 
 }
 
+div, p, table {
+    color:#060606;
+}
+
 small {
   color:#797979;
 }
