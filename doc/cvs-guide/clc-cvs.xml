@@ -39,9 +39,7 @@
 	The CVS at CLC is accessed via <command>ssh</command>, therefore
 	you have to make sure that the <literal>CVS_RSH</literal> is set
 	correctly (in most cases, it should
-	be set to <literal>ssh</literal>). Also check the
-	<literal>CVSUMASK</literal> environment variable which should be
-	set to <literal>002</literal> (consult the CVS documentation for
+	be set to <literal>ssh</literal>) (consult the CVS documentation for
 	more information about this).
       </para>
       <para>
@@ -64,7 +62,7 @@ diff -u</programlisting>
 	<filename>$HOME/crux/cvs</filename> for this.
       </para>
       <programlisting>cd $HOME/crux/cvs
-cvs -d<replaceable>username</replaceable>@crux.lugs.ch:/cvs/crux checkout clc</programlisting>
+cvs -d<replaceable>username</replaceable>@crux.fh-regensburg.de:/home/crux/cvs checkout clc</programlisting>
       <para>
 	Of course you will have to replace
 	<replaceable>username</replaceable> with your login
@@ -100,27 +98,30 @@ cvs commit -m "Initial release of freedom"</programlisting>
       In case you have patches or a README file, make sure you add them
       as well. <emphasis>Don't add the files which will be
       downloaded!</emphasis>. Please include the name of the port in the
-      commit message as this messages are listed on the <ulink
-      url="http://crux.lugs.ch/cgi-bin/cvstrac/timeline">Timeline
+      commit message as this messages are listed on the <ulink href="http://crux.fh-regensburg.de/cgi-bin/cvstrac/timeline">timeline
       page</ulink>
     </para>
   </sect1>
 
   <sect1>
-    <title>Adding a port to a collection (stable/unstable)</title>
+    <title>Adding a port to a collection (contrib/unmaintained)</title>
     <para>
-      To add a port to either <filename>clc/stable</filename> or
-      <filename>clc/unstable</filename>, tags are used. The tags are
-      <literal>STABLE-1_0</literal><footnote><para>The version is
-	  corresponding to the release of CRUX the port belongs to</para>
-      </footnote> for <filename>clc/stable</filename>
-      and <literal>UNSTABLE-1_0</literal> for
-      <filename>clc/unstable</filename>.
-      To add it to <filename>clc/unstable</filename> do the following
+      To add a port to either <filename>contrib</filename> or
+      <filename>unmaintained</filename>, tags are used. The tags for
+      contrib are
+      <literal>CONTRIB-$VERSION</literal> where $VERSION is the version
+      of the CRUX release this port was made for, e.g.
+      <literal>CONTRIB-1_2</literal>. Note that dots in the version
+      become underscores.
+      To add it to <filename>contrib</filename> do the following
       (assuming you are in <filename>$HOME/crux/cvs/clc/</filename>):
     </para>
     <programlisting>cd freedom
-cvs tag UNSTABLE-1_0</programlisting>
+cvs tag CONTRIB-1_2</programlisting>
+    <para>
+      Ports which have no maintainer within the CLC team should be
+      tagged <literal>UNMAINTAINED</literal>.
+    </para>
   </sect1>
 
   <sect1>
@@ -135,7 +136,7 @@ cvs tag UNSTABLE-1_0</programlisting>
     <programlisting>cd $HOME/crux/cvs/clc/freedom
 (make some changes)
 cvs commit -m "<replaceable>description of the change, including name of port"</replaceable>
-cvs tag -c -F UNSTABLE-1_0</programlisting>
+cvs tag -c -F CONTRIB-1_2</programlisting>
     <para>
       The <literal>-F</literal> switch tells <command>cvs</command> to
       move the tag if it was already given to an earlier
@@ -150,12 +151,12 @@ cvs tag -c -F UNSTABLE-1_0</programlisting>
       to <filename>clc/stable</filename> (or the other way around), all
       you have to do is delete the old tag and set the new one. If you
       forget to delete the old tag, the port will appear in both
-      <filename>clc/unstable</filename> and
-      <filename>clc/stable</filename>.
+      <filename>unmaintained</filename> and
+      <filename>contrib</filename>.
     </para>
     <programlisting>cd $HOME/crux/cvs/clc/freedom
-cvs tag -d UNSTABLE-1_0
-cvs tag -c -F STABLE-1_0</programlisting>
+cvs tag -d UNMAINTAINED
+cvs tag -c -F CONTRIB-1_2</programlisting>
     <para>
       The <literal>-d</literal> switch tells <command>cvs</command> to
       delete the specified tag.
@@ -175,7 +176,7 @@ cvs tag -c -F STABLE-1_0</programlisting>
       it remove the tag (assuming it is in <filename>clc/stable</filename>):
     </para>
     <programlisting>cd $HOME/crux/cvs/clc/freedom
-cvs tag -d STABLE-1_0</programlisting>
+cvs tag -d CONTRIB-1_2</programlisting>
     <para>
       To remove it from CVS completely, make sure you delete the tags
       first, then call <command>cvs delete</command> for the port
@@ -183,7 +184,7 @@ cvs tag -d STABLE-1_0</programlisting>
       <literal>-P</literal> switch to remove the empty directory.
     </para>
     <programlisting>cd $HOME/crux/cvs/clc/freedom
-cvs tag -d STABLE-1_0
+cvs tag -d CONTRIB-1_2
 cvs delete -R -f freedom
 cvs update -P
 </programlisting>
