@@ -39,6 +39,7 @@ To get the CLC ports tree, you need to place our <a href="http://crux.fh-regensb
  Solution for http only users to come...
 </p>
 
+ <!--
 <h3>Port search</h3>
 <form method="get" action="?p=search" >
 <p>
@@ -56,6 +57,8 @@ Search CRUX ports for
 <br>
 There's an <a href="?p=search">advanced search</a> page with more search options.</p>
 </form>
+-->
+
 
 <h3>Submitting ports</h3>
 You want to share your ports with other crux users? We provide your ports in

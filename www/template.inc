@@ -128,19 +128,20 @@ function printInfo( $result )
         echo "<td><b>Changed:</b></td><td>$row[10]</td></tr><tr>";
 
         echo "<td><b>CVS:</b>";
-        if ( $row[1] == "clc/stable" ) {
-            $cvsroot = "http://crux.lugs.ch/cgi-bin/cvs/stable/$row[0]/?only_with_tag=STABLE-1_1";
+        if ( $row[1] == "contrib" ) {
+            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_1/contrib/$row[0]";
             echo "<td>";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/stable/$row[0]/Pkgfile?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">Pkgfile</a>&nbsp;";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/stable/$row[0]/.footprint?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">.footprint</a>&nbsp;";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/stable/$row[0]/.md5sum?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">.md5sum</a>";
+            echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.md5sum\">.md5sum</a>&nbsp;";
             echo "</td>";
-        } else if ( $row[1] == "clc/unstable" ) {
-            $cvsroot = "http://crux.lugs.ch/cgi-bin/cvs/unstable/$row[0]/?only_with_tag=UNSTABLE-1_1";
+        } else if ( $row[1] == "unmaintained" ) {
+            $cvsroot =
+                "http://clc.berlios.de/ports/CRUX-1_1/unmaintained/$row[0]";
             echo "<td>";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/unstable/$row[0]/Pkgfile?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">Pkgfile</a>&nbsp;";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/unstable/$row[0]/.footprint?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">.footprint</a>&nbsp;";
-            echo "<a href=\"http://crux.lugs.ch/cgi-bin/cvs/unstable/$row[0]/.md5sum?rev=HEAD&only_with_tag=STABLE-1_1&content-type=text/vnd.viewcvs-markup\">.md5sum</a>";
+            echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.md5sum\">.md5sum</a>&nbsp;";
             echo "</td>";
         } else {
             // base and opt

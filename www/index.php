@@ -91,10 +91,10 @@ $lp->setPageName( $pageName );
 // TODO: take out navigation
 $lp->printLink( "home", "Home" );
 print "&nbsp;|&nbsp;";
-$lp->printLink( "search", "Search" );
-print "&nbsp;|&nbsp;";
-$lp->printLink( "stats", "Changes & Additions" );
-print "&nbsp;|&nbsp;";
+//$lp->printLink( "search", "Search" );
+//print "&nbsp;|&nbsp;";
+//$lp->printLink( "stats", "Changes & Additions" );
+//print "&nbsp;|&nbsp;";
 $lp->printLink( "submit", "Submit Ports" );
 print "&nbsp;|&nbsp;";
 $lp->printLink( "about", "About CLC" );
