@@ -9,7 +9,7 @@ include( "crux_secrets.php" );
         <select name="field">
             <?
                 foreach ( array( "Name", "Description", "Maintainer",
-                "Packager", "Packager/Maintainer", "File", "Group" ) as $opt ) {
+                "Packager", "Packager/Maintainer", /* "File", */ "Group" ) as $opt ) {
                     $s = "";
                     if ( $opt == $field ) {
                         $s = "selected";
@@ -41,7 +41,7 @@ include( "crux_secrets.php" );
 </p>
 <?
      
-$link = mysql_connect( "localhost:/tmp/mysql.sock", $db_user, $db_pw )
+$link = mysql_connect( "db.berlios.de:/tmp/mysql.sock", $db_user, $db_pw )
 or die("Could not connect");
 mysql_select_db( $db_name ) or die(mysql_error()); 
 

@@ -28,8 +28,6 @@ docItem( "http://home.t-online.de/home/juergen.daubert/crux/doc/crux-nfs-install
          "Jürgen Daubert");
 docItem( "http://miba.fxnet.hu/crux/loopback-install",
          "Install CRUX from loopback device", "Mikael Bak" );
-docItem( "http://crux.lugs.ch/people/martin/firewall.html",
-         "Using the CRUX Ports System Behind a Firewall", "Martin Lund" );
 docItem( "http://sto.f2o.org/crux/wiki/",
          "CRUX Linux Wiki page", "Stoyan Zhekov" );
 docItem( "http://projectdream.org/publications/sw/uml.html",

@@ -1,7 +1,7 @@
 <?
 
 include( "template.inc" );
-include( "/home/crux/htdocs/people/jw/clcweb/crux_secrets.php" );
+include( "crux_secrets.php" );
 
 if ( !isset( $count ) ) {
 	$count = 10;
@@ -10,7 +10,7 @@ if ( !isset( $section ) ) {
     $section = "all";
 }
 
-$link = mysql_connect( "localhost", $db_user, $db_pw );
+$link = mysql_connect( "db.berlios.de", $db_user, $db_pw );
 mysql_select_db( $db_name );
 
 

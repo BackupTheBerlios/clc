@@ -10,6 +10,7 @@ function newsItem( $date, $text ) {
 <blockquote>
 <table>
 <?
+newsItem( "06.08.2003", "Searchable database online again");
 newsItem( "02.07.2003", "Testing starts on berlios...");
 newsItem( "22.05.2003", "Added a sponsoring section on the About CLC page");
 newsItem( "27.04.2003", "Updated GNOME and KDE project pages");
@@ -25,10 +26,9 @@ newsItem( "18.02.2003", "Stats page: new structure, filtering" );
 
 
 <p>
-CLC is a port collection for the <a href="http://crux.nu">CRUX</a> linux distribution. <!-- We also
+CLC is a port collection for the <a href="http://crux.nu">CRUX</a> linux distribution. We also
 provide a <a href="?p=search">searchable database</a> of ports in CRUX itself and CLC, plus 
 some <a href="?p=docs">documents</a> and <a href="?p=projects">projects</a>.
--->
 </p>
 
 <h3>Quick start</h3>
@@ -39,7 +39,7 @@ To get the CLC ports tree, you need to place our
 <code>ports -u</code>. After that, you should have the ports in your tree.
 
 <p>
- Solution for http only users to come...
+HTTP-only users please have a look at our projects page.
 </p>
 
  <!--

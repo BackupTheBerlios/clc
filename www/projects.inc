@@ -7,6 +7,7 @@ $lp->setPage( "projects/" );
 $projects["art"] = "CRUX art";
 $projects["apache"] = "the httpd";
 $projects["gnome"] = "the GNOME desktop environment";
+$projects["httpup"] = "a synchronisation tool for http file repositories";
 $projects["kde"] = "the KDE desktop environment";
 $projects["ipv6"] = "IPv6 ports";
 // $projects["print"] = "Printing related stuff";

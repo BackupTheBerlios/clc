@@ -145,9 +145,12 @@ function printInfo( $result )
             echo "</td>";
         } else {
             // base and opt
-            $cvsroot = "http://www.fukt.bth.se/~per/crux/cvs.cgi/$row[1]/$row[0]/?only_with_tag=STABLE-1_1";
-            
-            echo "</td><td><a href=\"$cvsroot\">$row[0]</a></td>";
+            $cvsroot = "http://clc.berlios.de/ports/CRUX-1_1/$row[1]/$row[0]";
+            echo "<td>";
+            echo "<a href=\"$cvsroot/Pkgfile\">Pkgfile</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.footprint\">.footprint</a>&nbsp;";
+            echo "<a href=\"$cvsroot/.md5sum\">.md5sum</a>&nbsp;";
+            echo "</td>";
         }
         echo "</tr>";
         echo "</table>";
